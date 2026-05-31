@@ -1,0 +1,1596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FurCart — Premium Pet Gear</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #FAF7F2;
+    --warm: #F2EDE4;
+    --brown: #6B4C2A;
+    --dark: #2A1F14;
+    --accent: #D4782A;
+    --accent-light: #F5A55A;
+    --accent-pale: #FDF0E4;
+    --green: #4A7C59;
+    --green-light: #E8F2EC;
+    --text: #2A1F14;
+    --text-mid: #6B5A48;
+    --text-light: #9E8B79;
+    --white: #FFFFFF;
+    --border: rgba(107, 76, 42, 0.15);
+    --shadow: 0 4px 24px rgba(42, 31, 20, 0.08);
+    --shadow-hover: 0 12px 40px rgba(42, 31, 20, 0.16);
+    --r: 14px;
+    --r-sm: 8px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── HEADER ── */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(250, 247, 242, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .logo-icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .logo-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--dark);
+    letter-spacing: -0.3px;
+  }
+
+  .logo-text span { color: var(--accent); }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--text-mid);
+    font-size: 15px;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .btn-icon {
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background 0.2s;
+    color: var(--text);
+    position: relative;
+  }
+
+  .btn-icon:hover { background: var(--warm); }
+
+  .cart-count {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 16px;
+    height: 16px;
+    background: var(--accent);
+    color: white;
+    font-size: 10px;
+    font-weight: 600;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .btn-primary:hover {
+    background: var(--brown);
+    transform: translateY(-1px);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 2rem 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--accent-pale);
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 50px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(212, 120, 42, 0.2);
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(40px, 5vw, 58px);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--dark);
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero p {
+    font-size: 17px;
+    color: var(--text-mid);
+    line-height: 1.75;
+    margin-bottom: 36px;
+    max-width: 460px;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .btn-secondary {
+    background: none;
+    color: var(--text);
+    border: 1.5px solid var(--border);
+    padding: 10px 22px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 32px;
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+  }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--dark);
+  }
+
+  .stat-label {
+    font-size: 13px;
+    color: var(--text-light);
+    margin-top: 2px;
+  }
+
+  .hero-visual {
+    position: relative;
+  }
+
+  .hero-img-wrap {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 40px;
+    overflow: hidden;
+    background: var(--warm);
+    position: relative;
+  }
+
+  .hero-img-wrap svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .floating-card {
+    position: absolute;
+    background: white;
+    border-radius: 16px;
+    padding: 14px 18px;
+    box-shadow: var(--shadow-hover);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .floating-card.card-1 {
+    bottom: 60px;
+    left: -30px;
+    animation-delay: 0s;
+  }
+
+  .floating-card.card-2 {
+    top: 60px;
+    right: -20px;
+    animation-delay: 1.5s;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  .fc-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+  }
+
+  .fc-text strong { display: block; font-size: 14px; font-weight: 600; color: var(--dark); }
+  .fc-text span { font-size: 12px; color: var(--text-light); }
+
+  /* ── CATEGORIES ── */
+  .section { max-width: 1200px; margin: 0 auto; padding: 80px 2rem; }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .section-tag {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 700;
+    color: var(--dark);
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+  }
+
+  .section-sub {
+    font-size: 16px;
+    color: var(--text-mid);
+    margin-top: 10px;
+  }
+
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .cat-card {
+    background: var(--white);
+    border-radius: var(--r);
+    padding: 28px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: 1.5px solid transparent;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+
+  .cat-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--accent);
+  }
+
+  .cat-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 20px;
+    margin: 0 auto 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+  }
+
+  .cat-name {
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--dark);
+    margin-bottom: 4px;
+  }
+
+  .cat-count {
+    font-size: 13px;
+    color: var(--text-light);
+  }
+
+  /* ── PRODUCTS ── */
+  .filter-bar {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 36px;
+  }
+
+  .filter-btn {
+    padding: 8px 18px;
+    border-radius: 50px;
+    border: 1.5px solid var(--border);
+    background: none;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-mid);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .filter-btn.active, .filter-btn:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: white;
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+
+  .product-card {
+    background: var(--white);
+    border-radius: var(--r);
+    overflow: hidden;
+    transition: all 0.3s;
+    cursor: pointer;
+    position: relative;
+    box-shadow: var(--shadow);
+  }
+
+  .product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover);
+  }
+
+  .product-img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    background: var(--warm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .product-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    padding: 4px 10px;
+    border-radius: 50px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .badge-new { background: var(--green-light); color: var(--green); }
+  .badge-sale { background: #FDEAEA; color: #C0392B; }
+  .badge-best { background: var(--accent-pale); color: var(--accent); }
+
+  .wishlist-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 34px;
+    height: 34px;
+    background: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: all 0.2s;
+    font-size: 16px;
+  }
+
+  .wishlist-btn:hover { transform: scale(1.15); }
+  .wishlist-btn.liked { color: #e74c3c; }
+
+  .product-body { padding: 20px; }
+
+  .product-pet {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-light);
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  .product-name {
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--dark);
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+
+  .product-stars {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 14px;
+  }
+
+  .stars { color: #F5A623; font-size: 13px; letter-spacing: 1px; }
+  .review-count { font-size: 12px; color: var(--text-light); }
+
+  .product-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .product-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--dark);
+  }
+
+  .price-old {
+    font-size: 13px;
+    color: var(--text-light);
+    text-decoration: line-through;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    display: block;
+    line-height: 1;
+  }
+
+  .add-cart-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    font-size: 18px;
+  }
+
+  .add-cart-btn:hover {
+    background: var(--brown);
+    transform: scale(1.1);
+  }
+
+  /* ── BANNER ── */
+  .banner {
+    background: var(--dark);
+    color: white;
+    margin: 0;
+  }
+
+  .banner-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .banner h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 16px;
+    letter-spacing: -0.5px;
+  }
+
+  .banner h2 em { font-style: italic; color: var(--accent-light); }
+
+  .banner p {
+    color: rgba(255,255,255,0.65);
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 32px;
+  }
+
+  .banner-features {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .banner-feat {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 15px;
+    color: rgba(255,255,255,0.8);
+  }
+
+  .feat-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent-light);
+    flex-shrink: 0;
+  }
+
+  .banner-img {
+    background: rgba(255,255,255,0.05);
+    border-radius: 24px;
+    aspect-ratio: 4/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 80px;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .testi-card {
+    background: var(--white);
+    border-radius: var(--r);
+    padding: 28px;
+    box-shadow: var(--shadow);
+  }
+
+  .testi-stars { color: #F5A623; font-size: 15px; margin-bottom: 14px; }
+
+  .testi-text {
+    font-size: 15px;
+    color: var(--text-mid);
+    line-height: 1.7;
+    margin-bottom: 20px;
+    font-style: italic;
+  }
+
+  .testi-author {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .testi-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    color: white;
+    flex-shrink: 0;
+  }
+
+  .testi-name { font-weight: 600; font-size: 14px; color: var(--dark); }
+  .testi-pet { font-size: 12px; color: var(--text-light); }
+
+  /* ── NEWSLETTER ── */
+  .newsletter {
+    background: var(--accent-pale);
+    border-top: 1px solid rgba(212, 120, 42, 0.15);
+    border-bottom: 1px solid rgba(212, 120, 42, 0.15);
+  }
+
+  .newsletter-inner {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 72px 2rem;
+    text-align: center;
+  }
+
+  .newsletter h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 34px;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 12px;
+  }
+
+  .newsletter p {
+    color: var(--text-mid);
+    margin-bottom: 32px;
+    font-size: 16px;
+  }
+
+  .email-form {
+    display: flex;
+    gap: 12px;
+    max-width: 440px;
+    margin: 0 auto;
+  }
+
+  .email-input {
+    flex: 1;
+    padding: 12px 18px;
+    border-radius: 50px;
+    border: 1.5px solid rgba(212, 120, 42, 0.3);
+    background: white;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    color: var(--text);
+    outline: none;
+  }
+
+  .email-input:focus { border-color: var(--accent); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--dark);
+    color: rgba(255,255,255,0.7);
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 64px 2rem 40px;
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 48px;
+  }
+
+  .footer-brand .logo-text { color: white; }
+
+  .footer-desc {
+    font-size: 14px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.5);
+    margin-top: 16px;
+    max-width: 280px;
+  }
+
+  .footer-social {
+    display: flex;
+    gap: 10px;
+    margin-top: 24px;
+  }
+
+  .social-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+  }
+
+  .social-btn:hover { background: var(--accent); border-color: var(--accent); color: white; }
+
+  .footer-col h4 {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 20px;
+  }
+
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+
+  .footer-links a {
+    text-decoration: none;
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--accent-light); }
+
+  .footer-bottom {
+    padding-top: 32px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 13px;
+    color: rgba(255,255,255,0.35);
+  }
+
+  .payment-icons { display: flex; gap: 8px; }
+
+  .payment-badge {
+    background: rgba(255,255,255,0.08);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.5px;
+  }
+
+  /* ── CART DRAWER ── */
+  .cart-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 200;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+  }
+
+  .cart-overlay.open { opacity: 1; pointer-events: all; }
+
+  .cart-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 400px;
+    height: 100vh;
+    background: var(--cream);
+    z-index: 201;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cart-drawer.open { transform: translateX(0); }
+
+  .cart-header {
+    padding: 24px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .cart-header h3 { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--dark); }
+
+  .cart-items { flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 16px; }
+
+  .cart-item {
+    background: white;
+    border-radius: 12px;
+    padding: 14px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .ci-img {
+    width: 60px;
+    height: 60px;
+    background: var(--warm);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    flex-shrink: 0;
+  }
+
+  .ci-name { font-weight: 600; font-size: 14px; color: var(--dark); margin-bottom: 4px; }
+  .ci-price { font-size: 15px; font-weight: 700; color: var(--accent); }
+
+  .ci-qty {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 8px;
+  }
+
+  .qty-btn {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: none;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+  }
+
+  .qty-btn:hover { background: var(--accent); border-color: var(--accent); color: white; }
+  .qty-num { font-size: 14px; font-weight: 600; min-width: 20px; text-align: center; }
+
+  .ci-remove {
+    margin-left: auto;
+    background: none;
+    border: none;
+    color: var(--text-light);
+    cursor: pointer;
+    font-size: 18px;
+    transition: color 0.2s;
+    align-self: flex-start;
+  }
+
+  .ci-remove:hover { color: #e74c3c; }
+
+  .cart-footer {
+    padding: 20px 24px;
+    border-top: 1px solid var(--border);
+    background: white;
+  }
+
+  .cart-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+
+  .cart-total span:first-child { font-size: 15px; color: var(--text-mid); }
+  .cart-total span:last-child { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; color: var(--dark); }
+
+  .cart-empty {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-light);
+  }
+
+  .cart-empty .empty-icon { font-size: 60px; margin-bottom: 16px; }
+  .cart-empty p { font-size: 15px; }
+
+  /* ── TOAST ── */
+  .toast {
+    position: fixed;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: var(--dark);
+    color: white;
+    padding: 14px 24px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 500;
+    z-index: 300;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .toast.show { transform: translateX(-50%) translateY(0); }
+
+  /* ── TRUST BAR ── */
+  .trust-bar {
+    background: white;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .trust-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px 2rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .trust-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: var(--accent-pale);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  .trust-label { font-weight: 600; font-size: 14px; color: var(--dark); }
+  .trust-sub { font-size: 12px; color: var(--text-light); }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-visual { display: none; }
+    .categories-grid { grid-template-columns: repeat(2, 1fr); }
+    .products-grid { grid-template-columns: repeat(2, 1fr); }
+    .banner-inner { grid-template-columns: 1fr; }
+    .banner-img { display: none; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+    .trust-inner { grid-template-columns: repeat(2, 1fr); }
+    .cart-drawer { width: 100%; }
+    .nav-links { display: none; }
+  }
+
+  @media (max-width: 600px) {
+    .products-grid { grid-template-columns: 1fr; }
+    .categories-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-top { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- CART OVERLAY -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+
+<!-- CART DRAWER -->
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-header">
+    <h3>Your Cart 🛒</h3>
+    <button class="btn-icon" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty">
+      <div class="empty-icon">🛍️</div>
+      <p>Your cart is empty.<br>Find something your pet will love!</p>
+    </div>
+  </div>
+  <div class="cart-footer" id="cartFooter" style="display:none">
+    <div class="cart-total">
+      <span>Total</span>
+      <span id="cartTotal">₹0</span>
+    </div>
+    <button class="btn-primary" style="width:100%;padding:14px;font-size:16px" onclick="checkout()">
+      Checkout →
+    </button>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- HEADER -->
+<header>
+  <nav class="nav">
+    <a href="#" class="logo">
+      <svg class="logo-icon" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="42" height="42" rx="12" fill="#D4782A"/>
+        <ellipse cx="13" cy="12" rx="4" ry="5" fill="white" opacity="0.9"/>
+        <ellipse cx="29" cy="12" rx="4" ry="5" fill="white" opacity="0.9"/>
+        <ellipse cx="7" cy="20" rx="3.5" ry="4.5" fill="white" opacity="0.9"/>
+        <ellipse cx="35" cy="20" rx="3.5" ry="4.5" fill="white" opacity="0.9"/>
+        <path d="M21 18 C14 18 10 23 10 28 C10 33 14 36 21 36 C28 36 32 33 32 28 C32 23 28 18 21 18Z" fill="white"/>
+        <circle cx="17" cy="27" r="1.5" fill="#D4782A"/>
+        <circle cx="25" cy="27" r="1.5" fill="#D4782A"/>
+        <path d="M18 31 Q21 33.5 24 31" stroke="#D4782A" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+      </svg>
+      <span class="logo-text">Fur<span>Cart</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#shop">Shop</a></li>
+      <li><a href="#categories">Categories</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="btn-icon" title="Search">🔍</button>
+      <button class="btn-icon" title="Wishlist">🤍</button>
+      <button class="btn-icon" title="Cart" onclick="openCart()">
+        🛒
+        <span class="cart-count" id="cartCount" style="display:none">0</span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section>
+  <div class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">
+        🐾 New arrivals just in
+      </div>
+      <h1>Gear made for <em>happy</em> pets, happy homes</h1>
+      <p>Premium collars, leads, harnesses and accessories crafted with love for dogs and cats. Because your pet deserves the very best.</p>
+      <div class="hero-ctas">
+        <a href="#shop" class="btn-primary">Shop Now →</a>
+        <a href="#categories" class="btn-secondary">🐶 View All Categories</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="stat-num">12K+</div>
+          <div class="stat-label">Happy pets</div>
+        </div>
+        <div>
+          <div class="stat-num">200+</div>
+          <div class="stat-label">Products</div>
+        </div>
+        <div>
+          <div class="stat-num">4.9★</div>
+          <div class="stat-label">Avg rating</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-img-wrap">
+        <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+          <rect width="500" height="500" fill="#F2EDE4"/>
+          <!-- Decorative circles -->
+          <circle cx="400" cy="80" r="60" fill="#F5A55A" opacity="0.2"/>
+          <circle cx="80" cy="400" r="80" fill="#D4782A" opacity="0.1"/>
+          <!-- Dog silhouette -->
+          <ellipse cx="250" cy="290" rx="110" ry="90" fill="#6B4C2A" opacity="0.12"/>
+          <ellipse cx="250" cy="260" rx="90" ry="75" fill="#6B4C2A" opacity="0.18"/>
+          <!-- Head -->
+          <circle cx="250" cy="185" r="65" fill="#8B6344"/>
+          <!-- Ears -->
+          <ellipse cx="202" cy="158" rx="22" ry="30" fill="#6B4C2A" transform="rotate(-15 202 158)"/>
+          <ellipse cx="298" cy="158" rx="22" ry="30" fill="#6B4C2A" transform="rotate(15 298 158)"/>
+          <!-- Eyes -->
+          <circle cx="234" cy="180" r="9" fill="#2A1F14"/>
+          <circle cx="266" cy="180" r="9" fill="#2A1F14"/>
+          <circle cx="237" cy="177" r="3" fill="white"/>
+          <circle cx="269" cy="177" r="3" fill="white"/>
+          <!-- Nose -->
+          <ellipse cx="250" cy="200" rx="10" ry="7" fill="#2A1F14"/>
+          <!-- Mouth -->
+          <path d="M240 208 Q250 216 260 208" stroke="#2A1F14" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <!-- Collar -->
+          <rect x="210" y="238" width="80" height="14" rx="7" fill="#D4782A"/>
+          <circle cx="250" cy="245" r="5" fill="#F5A55A"/>
+          <!-- Body -->
+          <ellipse cx="250" cy="330" rx="80" ry="70" fill="#8B6344"/>
+          <!-- Paws -->
+          <ellipse cx="195" cy="385" rx="22" ry="16" fill="#6B4C2A"/>
+          <ellipse cx="305" cy="385" rx="22" ry="16" fill="#6B4C2A"/>
+          <ellipse cx="210" cy="388" rx="8" ry="6" fill="#8B6344"/>
+          <ellipse cx="300" cy="388" rx="8" ry="6" fill="#8B6344"/>
+          <!-- Tail -->
+          <path d="M325 310 Q370 280 360 340 Q350 370 330 360" fill="#8B6344"/>
+          <!-- Paw print decoration -->
+          <circle cx="420" cy="200" r="8" fill="#D4782A" opacity="0.4"/>
+          <circle cx="410" cy="188" r="5" fill="#D4782A" opacity="0.4"/>
+          <circle cx="422" cy="186" r="5" fill="#D4782A" opacity="0.4"/>
+          <circle cx="432" cy="193" r="5" fill="#D4782A" opacity="0.4"/>
+          <circle cx="80" cy="150" r="8" fill="#D4782A" opacity="0.3"/>
+          <circle cx="70" cy="138" r="5" fill="#D4782A" opacity="0.3"/>
+          <circle cx="82" cy="136" r="5" fill="#D4782A" opacity="0.3"/>
+          <circle cx="92" cy="143" r="5" fill="#D4782A" opacity="0.3"/>
+        </svg>
+      </div>
+      <!-- Floating cards -->
+      <div class="floating-card card-1">
+        <div class="fc-icon" style="background:#FDF0E4">🏅</div>
+        <div class="fc-text">
+          <strong>Vet Approved</strong>
+          <span>Safe materials</span>
+        </div>
+      </div>
+      <div class="floating-card card-2">
+        <div class="fc-icon" style="background:#E8F2EC">🚚</div>
+        <div class="fc-text">
+          <strong>Free Shipping</strong>
+          <span>Orders over ₹3,299</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-inner">
+    <div class="trust-item">
+      <div class="trust-icon">🚚</div>
+      <div>
+        <div class="trust-label">Free Shipping</div>
+        <div class="trust-sub">On orders over ₹3,299</div>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">↩️</div>
+      <div>
+        <div class="trust-label">Easy Returns</div>
+        <div class="trust-sub">30-day hassle-free</div>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">🛡️</div>
+      <div>
+        <div class="trust-label">Vet Approved</div>
+        <div class="trust-sub">Safe for all pets</div>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">💬</div>
+      <div>
+        <div class="trust-label">24/7 Support</div>
+        <div class="trust-sub">Always here to help</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CATEGORIES -->
+<section class="section" id="categories">
+  <div class="section-header">
+    <div class="section-tag">Browse by type</div>
+    <h2 class="section-title">Everything your pet needs</h2>
+    <p class="section-sub">Curated gear for every lifestyle and pet personality</p>
+  </div>
+  <div class="categories-grid">
+    <a href="#shop" class="cat-card" onclick="filterProducts('dog')">
+      <div class="cat-icon" style="background:#FDF0E4">🦮</div>
+      <div class="cat-name">Dog Collars</div>
+      <div class="cat-count">48 products</div>
+    </a>
+    <a href="#shop" class="cat-card" onclick="filterProducts('cat')">
+      <div class="cat-icon" style="background:#E8F2EC">😺</div>
+      <div class="cat-name">Cat Collars</div>
+      <div class="cat-count">32 products</div>
+    </a>
+    <a href="#shop" class="cat-card" onclick="filterProducts('dog')">
+      <div class="cat-icon" style="background:#EEF3FF">🐕</div>
+      <div class="cat-name">Harnesses</div>
+      <div class="cat-count">25 products</div>
+    </a>
+    <a href="#shop" class="cat-card" onclick="filterProducts('all')">
+      <div class="cat-icon" style="background:#FFF3E4">🎀</div>
+      <div class="cat-name">Leads & Leashes</div>
+      <div class="cat-count">40 products</div>
+    </a>
+    <a href="#shop" class="cat-card" onclick="filterProducts('all')">
+      <div class="cat-icon" style="background:#FDEAEA">🏷️</div>
+      <div class="cat-name">ID Tags</div>
+      <div class="cat-count">60 products</div>
+    </a>
+    <a href="#shop" class="cat-card" onclick="filterProducts('all')">
+      <div class="cat-icon" style="background:#F0F8FF">🎾</div>
+      <div class="cat-name">Toys</div>
+      <div class="cat-count">55 products</div>
+    </a>
+    <a href="#shop" class="cat-card" onclick="filterProducts('cat')">
+      <div class="cat-icon" style="background:#F5E8FF">🛏️</div>
+      <div class="cat-name">Beds & Mats</div>
+      <div class="cat-count">18 products</div>
+    </a>
+    <a href="#shop" class="cat-card" onclick="filterProducts('all')">
+      <div class="cat-icon" style="background:#E8FFF3">🧴</div>
+      <div class="cat-name">Grooming</div>
+      <div class="cat-count">30 products</div>
+    </a>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="section" id="shop">
+  <div class="section-header">
+    <div class="section-tag">Our collection</div>
+    <h2 class="section-title">Best selling gear</h2>
+    <p class="section-sub">Handpicked favourites loved by pets and their owners</p>
+  </div>
+
+  <div class="filter-bar" id="filterBar">
+    <button class="filter-btn active" onclick="filterProducts('all', this)">All</button>
+    <button class="filter-btn" onclick="filterProducts('dog', this)">🐶 Dogs</button>
+    <button class="filter-btn" onclick="filterProducts('cat', this)">🐱 Cats</button>
+    <button class="filter-btn" onclick="filterProducts('collar', this)">Collars</button>
+    <button class="filter-btn" onclick="filterProducts('harness', this)">Harnesses</button>
+    <button class="filter-btn" onclick="filterProducts('leash', this)">Leashes</button>
+    <button class="filter-btn" onclick="filterProducts('toy', this)">Toys</button>
+  </div>
+
+  <div class="products-grid" id="productsGrid"></div>
+</section>
+
+<!-- ABOUT BANNER -->
+<div class="banner" id="about">
+  <div class="banner-inner">
+    <div>
+      <h2>Crafted with care,<br>designed for <em>real life</em></h2>
+      <p>FurCart was born from a simple belief — pets deserve gear that's as thoughtfully made as the love we give them. Every collar is tested, every material is safe, every design is purposeful.</p>
+      <div class="banner-features">
+        <div class="banner-feat"><div class="feat-dot"></div> Hypoallergenic and pet-safe materials only</div>
+        <div class="banner-feat"><div class="feat-dot"></div> Designed with veterinarian guidance</div>
+        <div class="banner-feat"><div class="feat-dot"></div> Adjustable fits for every breed and size</div>
+        <div class="banner-feat"><div class="feat-dot"></div> Ethically made, planet-friendly packaging</div>
+      </div>
+      <br>
+      <a href="#shop" class="btn-primary" style="margin-top:8px">Shop the Collection →</a>
+    </div>
+    <div class="banner-img">🐾</div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<section class="section">
+  <div class="section-header">
+    <div class="section-tag">Customer love</div>
+    <h2 class="section-title">Happy pets, happy owners</h2>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"My golden retriever Max absolutely loves his new harness. The quality is incredible and it hasn't frayed at all after months of daily walks. Worth every penny!"</p>
+      <div class="testi-author">
+        <div class="testi-avatar" style="background:#D4782A">SJ</div>
+        <div>
+          <div class="testi-name">Sarah Johnson</div>
+          <div class="testi-pet">🐕 Golden Retriever owner</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"Ordered a breakaway collar for my cat Luna and it's perfect — safe, stylish, and the personalised tag is so cute. Fast shipping too, arrived in 2 days!"</p>
+      <div class="testi-author">
+        <div class="testi-avatar" style="background:#4A7C59">MP</div>
+        <div>
+          <div class="testi-name">Mike Patel</div>
+          <div class="testi-pet">🐱 British Shorthair owner</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"The leather collar I got for Bella is absolutely beautiful. You can tell it's made to last. I've already recommended FurCart to everyone at the dog park."</p>
+      <div class="testi-author">
+        <div class="testi-avatar" style="background:#6B4C2A">AL</div>
+        <div>
+          <div class="testi-name">Amy Liu</div>
+          <div class="testi-pet">🐩 French Bulldog owner</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<div class="newsletter">
+  <div class="newsletter-inner">
+    <h2>🐾 Join the FurCart pack</h2>
+    <p>Get exclusive deals, new product drops, and pet care tips delivered straight to your inbox. No spam — we promise.</p>
+    <div class="email-form">
+      <input class="email-input" type="email" placeholder="your@email.com" id="emailInput">
+      <button class="btn-primary" onclick="subscribe()">Subscribe</button>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo">
+          <svg width="36" height="36" viewBox="0 0 42 42" fill="none">
+            <rect width="42" height="42" rx="12" fill="#D4782A"/>
+            <ellipse cx="13" cy="12" rx="4" ry="5" fill="white" opacity="0.9"/>
+            <ellipse cx="29" cy="12" rx="4" ry="5" fill="white" opacity="0.9"/>
+            <ellipse cx="7" cy="20" rx="3.5" ry="4.5" fill="white" opacity="0.9"/>
+            <ellipse cx="35" cy="20" rx="3.5" ry="4.5" fill="white" opacity="0.9"/>
+            <path d="M21 18 C14 18 10 23 10 28 C10 33 14 36 21 36 C28 36 32 33 32 28 C32 23 28 18 21 18Z" fill="white"/>
+            <circle cx="17" cy="27" r="1.5" fill="#D4782A"/>
+            <circle cx="25" cy="27" r="1.5" fill="#D4782A"/>
+            <path d="M18 31 Q21 33.5 24 31" stroke="#D4782A" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          </svg>
+          <span class="logo-text" style="color:white">Fur<span style="color:#F5A55A">Cart</span></span>
+        </div>
+        <p class="footer-desc">India's favourite online pet gear store — collars, harnesses & more, delivered to your door.</p>
+        <div class="footer-social">
+          <a class="social-btn" href="#" title="Instagram">📸</a>
+          <a class="social-btn" href="#" title="Facebook">📘</a>
+          <a class="social-btn" href="#" title="TikTok">🎵</a>
+          <a class="social-btn" href="#" title="Twitter">🐦</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <ul class="footer-links">
+          <li><a href="#shop">Dog Collars</a></li>
+          <li><a href="#shop">Cat Collars</a></li>
+          <li><a href="#shop">Harnesses</a></li>
+          <li><a href="#shop">Leashes</a></li>
+          <li><a href="#shop">ID Tags</a></li>
+          <li><a href="#shop">Toys</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Help</h4>
+        <ul class="footer-links">
+          <li><a href="#">Size Guide</a></li>
+          <li><a href="#">Shipping Info</a></li>
+          <li><a href="#">Returns</a></li>
+          <li><a href="#">Track Order</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul class="footer-links">
+          <li><a href="#about">Our Story</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#">Wholesale</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 FurCart. Made with 🐾 for pets everywhere.</span>
+      <div class="payment-icons">
+        <span class="payment-badge">VISA</span>
+        <span class="payment-badge">MC</span>
+        <span class="payment-badge">AMEX</span>
+        <span class="payment-badge">PAYPAL</span>
+        <span class="payment-badge">UPI</span>
+        <span class="payment-badge">PAYTM</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const products = [
+  { id:1, name:'Classic Leather Collar', pet:'dog', tag:'collar', price:2899, oldPrice:null, badge:'best', emoji:'🟤', stars:5, reviews:142, desc:'Genuine leather, hand-stitched' },
+  { id:2, name:'Breakaway Safety Collar', pet:'cat', tag:'collar', price:1649, oldPrice:2099, badge:'sale', emoji:'🔵', stars:5, reviews:98, desc:'Safety release buckle' },
+  { id:3, name:'No-Pull Harness', pet:'dog', tag:'harness', price:4149, oldPrice:null, badge:'new', emoji:'🟠', stars:4, reviews:67, desc:'Padded, fully adjustable' },
+  { id:4, name:'Reflective Night Collar', pet:'dog', tag:'collar', price:2299, oldPrice:null, badge:null, emoji:'🔶', stars:5, reviews:203, desc:'360° visibility at night' },
+  { id:5, name:'Floral Cat Collar', pet:'cat', tag:'collar', price:1399, oldPrice:1799, badge:'sale', emoji:'🌸', stars:4, reviews:55, desc:'Soft cotton, breakaway' },
+  { id:6, name:'Retractable Leash 5m', pet:'dog', tag:'leash', price:3249, oldPrice:null, badge:null, emoji:'🔗', stars:4, reviews:88, desc:'One-button stop & lock' },
+  { id:7, name:'Bowtie Collar Combo', pet:'dog', tag:'collar', price:2499, oldPrice:null, badge:'new', emoji:'🎀', stars:5, reviews:34, desc:'Collar + removable bowtie' },
+  { id:8, name:'Adventure Cat Harness', pet:'cat', tag:'harness', price:3499, oldPrice:null, badge:'new', emoji:'🐆', stars:5, reviews:71, desc:'Escape-proof design' },
+  { id:9, name:'Rope Tug Toy', pet:'dog', tag:'toy', price:1079, oldPrice:null, badge:null, emoji:'🪢', stars:4, reviews:190, desc:'Natural cotton rope' },
+];
+
+let cart = [];
+let currentFilter = 'all';
+
+function renderProducts(filter = 'all') {
+  const grid = document.getElementById('productsGrid');
+  const filtered = filter === 'all' ? products : products.filter(p => p.pet === filter || p.tag === filter);
+  grid.innerHTML = filtered.map(p => `
+    <div class="product-card" id="pc-${p.id}">
+      <div class="product-img">
+        <span style="font-size:64px">${p.emoji}</span>
+        ${p.badge ? `<span class="product-badge badge-${p.badge}">${p.badge === 'new' ? 'New' : p.badge === 'sale' ? 'Sale' : 'Best Seller'}</span>` : ''}
+        <button class="wishlist-btn" onclick="toggleWish(this)" title="Wishlist">🤍</button>
+      </div>
+      <div class="product-body">
+        <div class="product-pet">${p.pet === 'dog' ? '🐶 For Dogs' : '🐱 For Cats'}</div>
+        <div class="product-name">${p.name}</div>
+        <div class="product-stars">
+          <span class="stars">${'★'.repeat(p.stars)}${'☆'.repeat(5-p.stars)}</span>
+          <span class="review-count">(${p.reviews})</span>
+        </div>
+        <div class="product-footer">
+          <div>
+            ${p.oldPrice ? `<span class="price-old">₹${p.oldPrice.toLocaleString('en-IN')}</span>` : ''}
+            <span class="product-price">₹${p.price.toLocaleString('en-IN')}</span>
+          </div>
+          <button class="add-cart-btn" onclick="addToCart(${p.id})" title="Add to cart">+</button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function filterProducts(filter, btn) {
+  currentFilter = filter;
+  renderProducts(filter);
+  if (btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+  if (filter !== 'all') {
+    document.getElementById('shop').scrollIntoView({ behavior: 'smooth' });
+  }
+}
+
+function addToCart(id) {
+  const product = products.find(p => p.id === id);
+  const existing = cart.find(c => c.id === id);
+  if (existing) {
+    existing.qty++;
+  } else {
+    cart.push({ ...product, qty: 1 });
+  }
+  updateCart();
+  showToast(`✓ ${product.name} added to cart`);
+}
+
+function updateCart() {
+  const total = cart.reduce((s, c) => s + c.price * c.qty, 0);
+  const count = cart.reduce((s, c) => s + c.qty, 0);
+  const countEl = document.getElementById('cartCount');
+  countEl.textContent = count;
+  countEl.style.display = count > 0 ? 'flex' : 'none';
+  document.getElementById('cartTotal').textContent = `₹${total.toLocaleString('en-IN')}`;
+  document.getElementById('cartFooter').style.display = cart.length > 0 ? 'block' : 'none';
+
+  const itemsEl = document.getElementById('cartItems');
+  if (cart.length === 0) {
+    itemsEl.innerHTML = `<div class="cart-empty"><div class="empty-icon">🛍️</div><p>Your cart is empty.<br>Find something your pet will love!</p></div>`;
+    return;
+  }
+  itemsEl.innerHTML = cart.map(c => `
+    <div class="cart-item">
+      <div class="ci-img">${c.emoji}</div>
+      <div style="flex:1">
+        <div class="ci-name">${c.name}</div>
+        <div class="ci-price">₹${c.price.toLocaleString('en-IN')}</div>
+        <div class="ci-qty">
+          <button class="qty-btn" onclick="updateQty(${c.id}, -1)">−</button>
+          <span class="qty-num">${c.qty}</span>
+          <button class="qty-btn" onclick="updateQty(${c.id}, 1)">+</button>
+        </div>
+      </div>
+      <button class="ci-remove" onclick="removeItem(${c.id})">×</button>
+    </div>
+  `).join('');
+}
+
+function updateQty(id, delta) {
+  const item = cart.find(c => c.id === id);
+  if (!item) return;
+  item.qty += delta;
+  if (item.qty <= 0) cart = cart.filter(c => c.id !== id);
+  updateCart();
+}
+
+function removeItem(id) {
+  cart = cart.filter(c => c.id !== id);
+  updateCart();
+}
+
+function openCart() {
+  document.getElementById('cartDrawer').classList.add('open');
+  document.getElementById('cartOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCart() {
+  document.getElementById('cartDrawer').classList.remove('open');
+  document.getElementById('cartOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function checkout() {
+  showToast('🎉 Redirecting to checkout...');
+  setTimeout(() => { cart = []; updateCart(); closeCart(); showToast('✅ Thank you for your order!'); }, 1500);
+}
+
+function toggleWish(btn) {
+  btn.classList.toggle('liked');
+  btn.textContent = btn.classList.contains('liked') ? '❤️' : '🤍';
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2800);
+}
+
+function subscribe() {
+  const v = document.getElementById('emailInput').value;
+  if (!v || !v.includes('@')) { showToast('⚠️ Please enter a valid email'); return; }
+  document.getElementById('emailInput').value = '';
+  showToast('🎉 Welcome to the FurCart pack!');
+}
+
+renderProducts();
+</script>
+</body>
+</html>
