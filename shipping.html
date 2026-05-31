@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shipping Info — FurCart</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--cream:#FAF7F2;--warm:#F2EDE4;--dark:#2A1F14;--accent:#D4782A;--accent-pale:#FDF0E4;--text:#2A1F14;--text-mid:#6B5A48;--text-light:#9E8B79;--border:rgba(107,76,42,0.15);--shadow:0 4px 24px rgba(42,31,20,0.08)}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text)}
+header{background:rgba(250,247,242,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+.nav{max-width:1100px;margin:0 auto;padding:0 2rem;height:68px;display:flex;align-items:center;justify-content:space-between}
+.logo{text-decoration:none;font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--dark)}.logo span{color:var(--accent)}
+.back-btn{display:inline-flex;align-items:center;gap:8px;color:var(--text-mid);text-decoration:none;font-size:14px;font-weight:500;padding:8px 16px;border-radius:50px;border:1.5px solid var(--border);transition:all .2s}
+.back-btn:hover{border-color:var(--accent);color:var(--accent)}
+.hero-bar{background:var(--dark);color:white;text-align:center;padding:48px 2rem 40px}
+.hero-bar h1{font-family:'Playfair Display',serif;font-size:36px;margin-bottom:8px}
+.hero-bar p{color:rgba(255,255,255,0.6);font-size:15px}
+.main{max-width:780px;margin:0 auto;padding:48px 2rem}
+.card{background:white;border-radius:16px;padding:32px;box-shadow:var(--shadow);margin-bottom:24px}
+.card h2{font-family:'Playfair Display',serif;font-size:22px;color:var(--dark);margin-bottom:20px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{background:var(--warm);padding:12px 16px;text-align:left;font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-mid)}
+th:first-child{border-radius:8px 0 0 8px}th:last-child{border-radius:0 8px 8px 0}
+td{padding:14px 16px;border-bottom:1px solid var(--border);color:var(--text-mid);font-size:14px}
+tr:last-child td{border-bottom:none}
+.highlight{color:var(--accent);font-weight:600}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:600px){.info-grid{grid-template-columns:1fr}}
+.info-box{background:var(--warm);border-radius:12px;padding:18px}
+.info-box .icon{font-size:24px;margin-bottom:8px}
+.info-box strong{display:block;font-size:14px;font-weight:600;color:var(--dark);margin-bottom:4px}
+.info-box span{font-size:13px;color:var(--text-mid)}
+.courier-list{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.courier-badge{background:var(--warm);border:1px solid var(--border);border-radius:8px;padding:8px 14px;font-size:13px;font-weight:600;color:var(--dark)}
+footer{background:var(--dark);color:rgba(255,255,255,0.5);text-align:center;padding:24px;font-size:13px;margin-top:60px}
+footer a{color:#F5A55A;text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <a href="index.html" class="logo">Fur<span>Cart</span></a>
+    <a href="index.html" class="back-btn">← Back to Store</a>
+  </div>
+</header>
+<div class="hero-bar">
+  <h1>🚚 Shipping Information</h1>
+  <p>Fast, reliable delivery across all of India</p>
+</div>
+<div class="main">
+  <div class="card">
+    <h2>Shipping Plans</h2>
+    <table>
+      <thead><tr><th>Plan</th><th>Delivery Time</th><th>Cost</th><th>Availability</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Standard Shipping</strong></td><td>3–7 business days</td><td class="highlight">FREE on orders ₹3,299+</td><td>Pan India</td></tr>
+        <tr><td><strong>Standard Shipping</strong></td><td>3–7 business days</td><td class="highlight">₹79</td><td>Orders below ₹3,299</td></tr>
+        <tr><td><strong>Express Delivery</strong></td><td>1–2 business days</td><td class="highlight">₹149</td><td>Metro cities</td></tr>
+        <tr><td><strong>Same Day</strong></td><td>Within 6 hours</td><td class="highlight">₹249</td><td>Mumbai, Delhi, Bangalore</td></tr>
+        <tr><td><strong>Cash on Delivery</strong></td><td>3–7 business days</td><td class="highlight">₹29 extra</td><td>Most pin codes</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>Shipping Details</h2>
+    <div class="info-grid">
+      <div class="info-box"><div class="icon">📦</div><strong>Order Processing</strong><span>Orders placed before 2 PM are dispatched same day. After 2 PM → next business day.</span></div>
+      <div class="info-box"><div class="icon">📍</div><strong>Tracking</strong><span>A tracking link is emailed to you once dispatched. Track on our <a href="track-order.html" style="color:var(--accent)">Track Order page</a>.</span></div>
+      <div class="info-box"><div class="icon">🏙️</div><strong>Metro Cities</strong><span>Mumbai, Delhi, Bangalore, Chennai, Hyderabad, Pune, Kolkata — express available.</span></div>
+      <div class="info-box"><div class="icon">🗺️</div><strong>Remote Areas</strong><span>Delivery to remote pin codes may take 7–10 days. We ship to 25,000+ pin codes.</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Our Courier Partners</h2>
+    <p style="color:var(--text-mid);font-size:14px;margin-bottom:16px">We work with India's most reliable logistics companies to ensure safe, on-time delivery.</p>
+    <div class="courier-list">
+      <span class="courier-badge">🚀 Delhivery</span>
+      <span class="courier-badge">📦 Blue Dart</span>
+      <span class="courier-badge">🚚 DTDC</span>
+      <span class="courier-badge">📬 India Post</span>
+      <span class="courier-badge">⚡ Ekart</span>
+      <span class="courier-badge">🏃 Shadowfax</span>
+    </div>
+  </div>
+
+  <div style="background:var(--accent-pale);border-radius:14px;padding:24px;text-align:center;border:1px solid rgba(212,120,42,0.2)">
+    <p style="font-size:15px;color:var(--text-mid);margin-bottom:12px">Questions about your shipment?</p>
+    <a href="contact.html" style="background:var(--accent);color:white;text-decoration:none;padding:10px 24px;border-radius:50px;font-weight:600;font-size:14px">Contact Support →</a>
+  </div>
+</div>
+<footer>© 2026 FurCart by Ajay Mishra &nbsp;·&nbsp; <a href="index.html">Back to Store</a> &nbsp;·&nbsp; <a href="track-order.html">Track Order</a></footer>
+</body>
+</html>

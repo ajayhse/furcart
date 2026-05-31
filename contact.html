@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us — FurCart</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--cream:#FAF7F2;--warm:#F2EDE4;--dark:#2A1F14;--accent:#D4782A;--accent-light:#F5A55A;--accent-pale:#FDF0E4;--text:#2A1F14;--text-mid:#6B5A48;--text-light:#9E8B79;--border:rgba(107,76,42,0.15);--shadow:0 4px 24px rgba(42,31,20,0.08)}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text)}
+header{background:rgba(250,247,242,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+.nav{max-width:1100px;margin:0 auto;padding:0 2rem;height:68px;display:flex;align-items:center;justify-content:space-between}
+.logo{text-decoration:none;font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--dark)}
+.logo span{color:var(--accent)}
+.back-btn{display:inline-flex;align-items:center;gap:8px;color:var(--text-mid);text-decoration:none;font-size:14px;font-weight:500;padding:8px 16px;border-radius:50px;border:1.5px solid var(--border);transition:all .2s}
+.back-btn:hover{border-color:var(--accent);color:var(--accent)}
+.hero-bar{background:var(--dark);color:white;text-align:center;padding:48px 2rem 40px}
+.hero-bar h1{font-family:'Playfair Display',serif;font-size:36px;margin-bottom:8px}
+.hero-bar p{color:rgba(255,255,255,0.6);font-size:15px}
+.main{max-width:1000px;margin:0 auto;padding:48px 2rem;display:grid;grid-template-columns:1fr 1fr;gap:32px}
+@media(max-width:700px){.main{grid-template-columns:1fr}}
+.card{background:white;border-radius:16px;padding:32px;box-shadow:var(--shadow)}
+.card h2{font-family:'Playfair Display',serif;font-size:22px;color:var(--dark);margin-bottom:20px}
+.form-group{margin-bottom:16px}
+label{display:block;font-size:12px;font-weight:600;color:var(--text-mid);margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px}
+input,textarea,select{width:100%;padding:12px 16px;border-radius:10px;border:1.5px solid var(--border);background:var(--cream);font-family:'DM Sans',sans-serif;font-size:15px;color:var(--text);outline:none;transition:border .2s}
+input:focus,textarea:focus{border-color:var(--accent)}
+textarea{resize:vertical;min-height:120px}
+.btn{background:var(--accent);color:white;border:none;padding:14px 32px;border-radius:50px;font-size:15px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;width:100%;transition:all .2s;margin-top:8px}
+.btn:hover{background:#6B4C2A;transform:translateY(-1px)}
+.contact-item{display:flex;gap:16px;align-items:flex-start;margin-bottom:24px}
+.c-icon{width:48px;height:48px;border-radius:12px;background:var(--accent-pale);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.c-label{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text-light);margin-bottom:4px}
+.c-val{font-size:15px;font-weight:600;color:var(--dark)}
+.c-val a{color:var(--accent);text-decoration:none}
+.team-box{background:var(--warm);border-radius:12px;padding:20px;display:flex;align-items:center;gap:16px;margin-top:20px}
+.avatar{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#D4782A,#F5A55A);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:20px;color:white;flex-shrink:0}
+.hours{background:var(--warm);border-radius:12px;padding:16px 20px;margin-top:20px}
+.hour-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border);font-size:14px}
+.hour-row:last-child{border-bottom:none}
+footer{background:var(--dark);color:rgba(255,255,255,0.5);text-align:center;padding:24px;font-size:13px;margin-top:60px}
+footer a{color:var(--accent-light);text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <a href="index.html" class="logo">Fur<span>Cart</span></a>
+    <a href="index.html" class="back-btn">← Back to Store</a>
+  </div>
+</header>
+
+<div class="hero-bar">
+  <h1>📬 Contact Us</h1>
+  <p>We're here to help — reach out any time!</p>
+</div>
+
+<div class="main">
+  <!-- LEFT: Contact Info -->
+  <div>
+    <div class="card">
+      <h2>Get in Touch</h2>
+
+      <div class="contact-item">
+        <div class="c-icon">✉️</div>
+        <div><div class="c-label">Email</div><div class="c-val"><a href="mailto:contact@furcart.com">contact@furcart.com</a></div></div>
+      </div>
+      <div class="contact-item">
+        <div class="c-icon">💬</div>
+        <div><div class="c-label">WhatsApp</div><div class="c-val"><a href="https://wa.me/919999999999">+91 99999 99999</a></div></div>
+      </div>
+      <div class="contact-item">
+        <div class="c-icon">🌐</div>
+        <div><div class="c-label">Website</div><div class="c-val">www.furcart.in</div></div>
+      </div>
+      <div class="contact-item">
+        <div class="c-icon">📦</div>
+        <div><div class="c-label">Order Support</div><div class="c-val">Reply within 24 hours</div></div>
+      </div>
+
+      <div class="team-box">
+        <div class="avatar">AM</div>
+        <div>
+          <div style="font-weight:700;font-size:15px;color:var(--dark)">Ajay Mishra</div>
+          <div style="font-size:13px;color:var(--text-light)">Founder & CEO, FurCart</div>
+          <div style="font-size:13px;margin-top:4px"><a href="mailto:contact@furcart.com" style="color:var(--accent);text-decoration:none">contact@furcart.com</a></div>
+        </div>
+      </div>
+
+      <div class="hours">
+        <div style="font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text-light);margin-bottom:8px">Support Hours</div>
+        <div class="hour-row"><span>Monday – Friday</span><span style="font-weight:600">9 AM – 7 PM</span></div>
+        <div class="hour-row"><span>Saturday</span><span style="font-weight:600">10 AM – 5 PM</span></div>
+        <div class="hour-row"><span>Sunday</span><span style="color:var(--text-light)">Closed</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT: Contact Form -->
+  <div>
+    <div class="card">
+      <h2>Send Us a Message</h2>
+      <div class="form-group"><label>Your Name</label><input type="text" id="cName" placeholder="Rahul Sharma" /></div>
+      <div class="form-group"><label>Email</label><input type="email" id="cEmail" placeholder="you@example.com" /></div>
+      <div class="form-group"><label>Subject</label>
+        <select id="cSubject">
+          <option value="">Select a topic...</option>
+          <option>Order / Tracking issue</option>
+          <option>Return or Refund</option>
+          <option>Product question</option>
+          <option>Payment issue</option>
+          <option>Wholesale / Bulk order</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Message</label><textarea id="cMessage" placeholder="Tell us how we can help..."></textarea></div>
+      <button class="btn" onclick="sendMsg()">Send Message →</button>
+    </div>
+  </div>
+</div>
+
+<footer>© 2026 FurCart by Ajay Mishra &nbsp;·&nbsp; <a href="index.html">Back to Store</a></footer>
+
+<script>
+function sendMsg(){
+  const n=document.getElementById('cName').value;
+  const e=document.getElementById('cEmail').value;
+  const m=document.getElementById('cMessage').value;
+  if(!n||!e||!m){alert('Please fill in all fields');return;}
+  alert('✅ Message sent! We will reply to '+e+' within 24 hours.');
+  document.getElementById('cName').value='';
+  document.getElementById('cEmail').value='';
+  document.getElementById('cMessage').value='';
+}
+</script>
+</body>
+</html>

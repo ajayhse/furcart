@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ — FurCart</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--cream:#FAF7F2;--warm:#F2EDE4;--dark:#2A1F14;--accent:#D4782A;--accent-pale:#FDF0E4;--text:#2A1F14;--text-mid:#6B5A48;--text-light:#9E8B79;--border:rgba(107,76,42,0.15);--shadow:0 4px 24px rgba(42,31,20,0.08)}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text)}
+header{background:rgba(250,247,242,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+.nav{max-width:1100px;margin:0 auto;padding:0 2rem;height:68px;display:flex;align-items:center;justify-content:space-between}
+.logo{text-decoration:none;font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--dark)}
+.logo span{color:var(--accent)}
+.back-btn{display:inline-flex;align-items:center;gap:8px;color:var(--text-mid);text-decoration:none;font-size:14px;font-weight:500;padding:8px 16px;border-radius:50px;border:1.5px solid var(--border);transition:all .2s}
+.back-btn:hover{border-color:var(--accent);color:var(--accent)}
+.hero-bar{background:var(--dark);color:white;text-align:center;padding:48px 2rem 40px}
+.hero-bar h1{font-family:'Playfair Display',serif;font-size:36px;margin-bottom:8px}
+.hero-bar p{color:rgba(255,255,255,0.6);font-size:15px}
+.main{max-width:780px;margin:0 auto;padding:48px 2rem}
+.section-title{font-family:'Playfair Display',serif;font-size:22px;color:var(--dark);margin:32px 0 16px;padding-bottom:10px;border-bottom:2px solid var(--accent-pale)}
+.faq-item{background:white;border-radius:12px;margin-bottom:10px;box-shadow:var(--shadow);overflow:hidden}
+.faq-q{padding:18px 20px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:600;font-size:15px;color:var(--dark);user-select:none}
+.faq-q:hover{background:var(--accent-pale)}
+.faq-arrow{font-size:18px;transition:transform .3s;color:var(--accent)}
+.faq-a{display:none;padding:0 20px 18px;font-size:14px;color:var(--text-mid);line-height:1.7}
+.faq-item.open .faq-a{display:block}
+.faq-item.open .faq-arrow{transform:rotate(180deg)}
+.cta-box{background:var(--dark);border-radius:16px;padding:32px;text-align:center;margin-top:40px}
+.cta-box h3{font-family:'Playfair Display',serif;font-size:22px;color:white;margin-bottom:10px}
+.cta-box p{color:rgba(255,255,255,0.6);margin-bottom:20px;font-size:15px}
+.cta-box a{background:var(--accent);color:white;text-decoration:none;padding:12px 28px;border-radius:50px;font-weight:600;font-size:14px}
+footer{background:var(--dark);color:rgba(255,255,255,0.5);text-align:center;padding:24px;font-size:13px;margin-top:60px}
+footer a{color:#F5A55A;text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <a href="index.html" class="logo">Fur<span>Cart</span></a>
+    <a href="index.html" class="back-btn">← Back to Store</a>
+  </div>
+</header>
+<div class="hero-bar">
+  <h1>❓ Frequently Asked Questions</h1>
+  <p>Everything you need to know about FurCart</p>
+</div>
+<div class="main">
+  <div class="section-title">📦 Orders & Shipping</div>
+  <div class="faq-item"><div class="faq-q" onclick="toggle(this)">How long does delivery take? <span class="faq-arrow">▾</span></div><div class="faq-a">Standard delivery takes 3–7 business days across India. Express delivery (1–2 days) is available for select pin codes. You will receive a tracking link via email once your order is dispatched.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="toggle(this)">Is shipping free? <span class="faq-arrow">▾</span></div><div class="faq-a">Yes! We offer free shipping on all orders above ₹3,299. For orders below that, a flat shipping fee of ₹79 applies.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="toggle(this)">Do you ship across India? <span class="faq-arrow">▾</span></div><div class="faq-a">Yes, we ship to all major cities and most pin codes across India including Mumbai, Delhi, Bangalore, Chennai, Hyderabad, Pune, Kolkata, and more.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="toggle(this)">How do I track my order? <span class="faq-arrow">▾</span></div><div class="faq-a">Visit our <a href="track-order.html" style="color:var(--accent)">Track Order page</a>, enter your Order ID and email address. You can also click the tracking link in your order confirmation email.</div></div>
+
+  <div class="section-title">💳 Payments</div>
+  <div class="faq-item"><div class="faq-q" onclick="toggle(this)">What payment methods do you accept? <span class="faq-arrow">▾</span></div><div class="faq-a">We accept UPI (GPay, PhonePe, BHIM), Razorpay, Paytm, Net Banking, Debit/Credit Cards (Visa, Mastercard, Amex), and Cash on Delivery (COD).</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="toggle(this)">Is Cash on Delivery available? <span class="faq-arrow">▾</span></div><div class="faq-a">Yes! COD is available for most pin codes in India. Simply select "Cash on Delivery" at checkout. Please keep exact change ready at the time of delivery.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="toggle(this)">Is my payment information safe? <span class="faq-arrow">▾</span></div><div class="faq-a">Absolutely. All transactions are 256-bit SSL encrypted and processed through Razorpay, which is PCI DSS Level 1 compliant — the highest security standard for payment processing.</div></div>
+
+  <div class="section-title">↩️ Returns & Refunds</div>
+  <div class="faq-item"><div class="faq-q" onclick="toggle(this)">What is your return policy? <span class="faq-arrow">▾</span></div><div class="faq-a">We offer hassle-free returns within 30 days of delivery. The item must be unused, unwashed, and in its original packaging. Visit our <a href="returns.html" style="color:var(--accent)">Returns page</a> to initiate a return.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="toggle(this)">How long does a refund take? <span class="faq-arrow">▾</span></div><div class="faq-a">Once we receive and inspect your return, refunds are processed within 5–7 business days back to your original payment method (UPI/Card/Paytm). COD refunds are sent via bank transfer.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="toggle(this)">What if I received a damaged product? <span class="faq-arrow">▾</span></div><div class="faq-a">We're sorry to hear that! Please email us at contact@furcart.com with your order ID and a photo of the damaged item within 48 hours of delivery. We will send a replacement immediately at no extra cost.</div></div>
+
+  <div class="section-title">🐾 Products</div>
+  <div class="faq-item"><div class="faq-q" onclick="toggle(this)">Are your products safe for pets? <span class="faq-arrow">▾</span></div><div class="faq-a">Yes! All FurCart products are made from vet-approved, non-toxic, hypoallergenic materials. Our collars and harnesses are tested for safety, durability, and comfort before listing.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="toggle(this)">How do I choose the right size? <span class="faq-arrow">▾</span></div><div class="faq-a">Check our <a href="size-guide.html" style="color:var(--accent)">Size Guide</a> for detailed measurements. Generally, measure your pet's neck with a tape and add 2 fingers of space for comfort.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="toggle(this)">Can I personalise a collar with my pet's name? <span class="faq-arrow">▾</span></div><div class="faq-a">Yes! Many of our collars and ID tags support personalisation. Select the personalisation option on the product page and enter your pet's name and your phone number.</div></div>
+
+  <div class="cta-box">
+    <h3>Still have questions?</h3>
+    <p>Our team is happy to help — reach out any time</p>
+    <a href="contact.html">Contact Us →</a>
+  </div>
+</div>
+<footer>© 2026 FurCart by Ajay Mishra &nbsp;·&nbsp; <a href="index.html">Back to Store</a></footer>
+<script>
+function toggle(el){el.closest('.faq-item').classList.toggle('open')}
+</script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Size Guide — FurCart</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--cream:#FAF7F2;--warm:#F2EDE4;--dark:#2A1F14;--accent:#D4782A;--accent-pale:#FDF0E4;--text:#2A1F14;--text-mid:#6B5A48;--text-light:#9E8B79;--border:rgba(107,76,42,0.15);--shadow:0 4px 24px rgba(42,31,20,0.08)}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text)}
+header{background:rgba(250,247,242,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+.nav{max-width:1100px;margin:0 auto;padding:0 2rem;height:68px;display:flex;align-items:center;justify-content:space-between}
+.logo{text-decoration:none;font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--dark)}.logo span{color:var(--accent)}
+.back-btn{display:inline-flex;align-items:center;gap:8px;color:var(--text-mid);text-decoration:none;font-size:14px;font-weight:500;padding:8px 16px;border-radius:50px;border:1.5px solid var(--border);transition:all .2s}
+.back-btn:hover{border-color:var(--accent);color:var(--accent)}
+.hero-bar{background:var(--dark);color:white;text-align:center;padding:48px 2rem 40px}
+.hero-bar h1{font-family:'Playfair Display',serif;font-size:36px;margin-bottom:8px}
+.hero-bar p{color:rgba(255,255,255,0.6);font-size:15px}
+.main{max-width:860px;margin:0 auto;padding:48px 2rem}
+.tabs{display:flex;gap:8px;margin-bottom:28px;flex-wrap:wrap}
+.tab{padding:10px 22px;border-radius:50px;border:1.5px solid var(--border);background:none;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;color:var(--text-mid);cursor:pointer;transition:all .2s}
+.tab.active,.tab:hover{background:var(--accent);border-color:var(--accent);color:white}
+.panel{display:none}.panel.active{display:block}
+.card{background:white;border-radius:16px;padding:32px;box-shadow:var(--shadow);margin-bottom:24px}
+.card h2{font-family:'Playfair Display',serif;font-size:22px;color:var(--dark);margin-bottom:20px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{background:var(--warm);padding:12px 16px;text-align:left;font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-mid)}
+td{padding:12px 16px;border-bottom:1px solid var(--border);color:var(--text-mid)}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:var(--cream)}
+.size-badge{display:inline-block;background:var(--accent-pale);color:var(--accent);padding:3px 10px;border-radius:50px;font-size:12px;font-weight:600}
+.tip-box{background:var(--accent-pale);border-radius:12px;padding:20px;margin-top:20px;border-left:4px solid var(--accent)}
+.tip-box h4{font-weight:600;color:var(--dark);margin-bottom:8px}
+.tip-box p{font-size:14px;color:var(--text-mid)}
+footer{background:var(--dark);color:rgba(255,255,255,0.5);text-align:center;padding:24px;font-size:13px;margin-top:60px}
+footer a{color:#F5A55A;text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <a href="index.html" class="logo">Fur<span>Cart</span></a>
+    <a href="index.html" class="back-btn">← Back to Store</a>
+  </div>
+</header>
+<div class="hero-bar">
+  <h1>📏 Size Guide</h1>
+  <p>Find the perfect fit for your furry friend</p>
+</div>
+<div class="main">
+  <div class="tabs">
+    <button class="tab active" onclick="showTab('dogs',this)">🐶 Dog Collars</button>
+    <button class="tab" onclick="showTab('cats',this)">🐱 Cat Collars</button>
+    <button class="tab" onclick="showTab('harness',this)">🐕 Harnesses</button>
+  </div>
+
+  <div id="dogs" class="panel active">
+    <div class="card">
+      <h2>Dog Collar Sizes</h2>
+      <table>
+        <thead><tr><th>Size</th><th>Neck Circumference</th><th>Collar Width</th><th>Best For</th></tr></thead>
+        <tbody>
+          <tr><td><span class="size-badge">XS</span></td><td>20–26 cm</td><td>1 cm</td><td>Chihuahua, Toy Poodle</td></tr>
+          <tr><td><span class="size-badge">S</span></td><td>26–34 cm</td><td>1.5 cm</td><td>Pomeranian, Shih Tzu, Dachshund</td></tr>
+          <tr><td><span class="size-badge">M</span></td><td>34–44 cm</td><td>2 cm</td><td>Beagle, Cocker Spaniel, Whippet</td></tr>
+          <tr><td><span class="size-badge">L</span></td><td>44–56 cm</td><td>2.5 cm</td><td>Labrador, Golden Retriever, Boxer</td></tr>
+          <tr><td><span class="size-badge">XL</span></td><td>56–68 cm</td><td>3 cm</td><td>German Shepherd, Rottweiler, Great Dane</td></tr>
+        </tbody>
+      </table>
+      <div class="tip-box"><h4>📐 How to Measure</h4><p>Use a soft measuring tape around the base of your dog's neck. Add 2 finger widths (~3 cm) for comfortable fit. If between sizes, size up.</p></div>
+    </div>
+  </div>
+
+  <div id="cats" class="panel">
+    <div class="card">
+      <h2>Cat Collar Sizes</h2>
+      <table>
+        <thead><tr><th>Size</th><th>Neck Circumference</th><th>Collar Width</th><th>Best For</th></tr></thead>
+        <tbody>
+          <tr><td><span class="size-badge">XS</span></td><td>18–22 cm</td><td>0.8 cm</td><td>Kittens (4–6 months)</td></tr>
+          <tr><td><span class="size-badge">S</span></td><td>22–28 cm</td><td>1 cm</td><td>Small adult cats, most breeds</td></tr>
+          <tr><td><span class="size-badge">M</span></td><td>28–34 cm</td><td>1.2 cm</td><td>Maine Coon, Ragdoll, large cats</td></tr>
+        </tbody>
+      </table>
+      <div class="tip-box"><h4>🔒 Breakaway Safety Tip</h4><p>All our cat collars feature a breakaway buckle. The collar should be snug enough to fit 2 fingers underneath. Never too tight!</p></div>
+    </div>
+  </div>
+
+  <div id="harness" class="panel">
+    <div class="card">
+      <h2>Harness Sizes (Dogs)</h2>
+      <table>
+        <thead><tr><th>Size</th><th>Chest Girth</th><th>Neck Girth</th><th>Weight</th></tr></thead>
+        <tbody>
+          <tr><td><span class="size-badge">XS</span></td><td>30–40 cm</td><td>20–28 cm</td><td>1–4 kg</td></tr>
+          <tr><td><span class="size-badge">S</span></td><td>40–52 cm</td><td>28–36 cm</td><td>4–8 kg</td></tr>
+          <tr><td><span class="size-badge">M</span></td><td>52–65 cm</td><td>36–46 cm</td><td>8–18 kg</td></tr>
+          <tr><td><span class="size-badge">L</span></td><td>65–80 cm</td><td>46–58 cm</td><td>18–35 kg</td></tr>
+          <tr><td><span class="size-badge">XL</span></td><td>80–100 cm</td><td>58–72 cm</td><td>35–60 kg</td></tr>
+        </tbody>
+      </table>
+      <div class="tip-box"><h4>📐 Measure Chest Girth</h4><p>Measure the widest part of your dog's chest just behind the front legs. Use that as the primary measurement. If between sizes, always go up for harnesses.</p></div>
+    </div>
+  </div>
+</div>
+<footer>© 2026 FurCart by Ajay Mishra &nbsp;·&nbsp; <a href="index.html">Back to Store</a></footer>
+<script>
+function showTab(id,btn){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>

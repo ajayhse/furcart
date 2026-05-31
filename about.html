@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Story — FurCart</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--cream:#FAF7F2;--warm:#F2EDE4;--dark:#2A1F14;--accent:#D4782A;--accent-light:#F5A55A;--accent-pale:#FDF0E4;--text:#2A1F14;--text-mid:#6B5A48;--text-light:#9E8B79;--border:rgba(107,76,42,0.15);--shadow:0 4px 24px rgba(42,31,20,0.08)}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text)}
+header{background:rgba(250,247,242,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+.nav{max-width:1100px;margin:0 auto;padding:0 2rem;height:68px;display:flex;align-items:center;justify-content:space-between}
+.logo{text-decoration:none;font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--dark)}.logo span{color:var(--accent)}
+.back-btn{display:inline-flex;align-items:center;gap:8px;color:var(--text-mid);text-decoration:none;font-size:14px;font-weight:500;padding:8px 16px;border-radius:50px;border:1.5px solid var(--border);transition:all .2s}
+.back-btn:hover{border-color:var(--accent);color:var(--accent)}
+.hero{background:var(--dark);color:white;padding:80px 2rem;text-align:center}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(32px,5vw,52px);font-weight:700;line-height:1.2;margin-bottom:16px}
+.hero h1 em{font-style:italic;color:var(--accent-light)}
+.hero p{color:rgba(255,255,255,0.65);font-size:17px;max-width:580px;margin:0 auto}
+.main{max-width:860px;margin:0 auto;padding:60px 2rem}
+.story{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-bottom:60px}
+@media(max-width:680px){.story{grid-template-columns:1fr}}
+.story-img{background:var(--warm);border-radius:24px;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;font-size:80px}
+.story-text h2{font-family:'Playfair Display',serif;font-size:28px;color:var(--dark);margin-bottom:16px;line-height:1.3}
+.story-text p{color:var(--text-mid);font-size:15px;line-height:1.8;margin-bottom:14px}
+.values{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px;margin-bottom:60px}
+.val-box{background:white;border-radius:14px;padding:24px;box-shadow:var(--shadow);text-align:center}
+.val-icon{font-size:32px;margin-bottom:12px}
+.val-title{font-weight:600;font-size:15px;color:var(--dark);margin-bottom:6px}
+.val-desc{font-size:13px;color:var(--text-light);line-height:1.6}
+.team-section h2{font-family:'Playfair Display',serif;font-size:28px;color:var(--dark);margin-bottom:32px;text-align:center}
+.team-card{background:white;border-radius:16px;padding:32px;box-shadow:var(--shadow);text-align:center;max-width:320px;margin:0 auto}
+.avatar{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#D4782A,#F5A55A);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:28px;color:white;margin:0 auto 16px}
+.team-name{font-family:'Playfair Display',serif;font-size:22px;color:var(--dark);margin-bottom:4px}
+.team-title{font-size:13px;text-transform:uppercase;letter-spacing:1px;color:var(--text-light);margin-bottom:16px}
+.team-bio{font-size:14px;color:var(--text-mid);line-height:1.7;margin-bottom:20px}
+.team-email{display:inline-flex;align-items:center;gap:6px;background:var(--accent-pale);border:1px solid rgba(212,120,42,0.2);color:var(--accent);text-decoration:none;padding:8px 16px;border-radius:50px;font-size:13px;font-weight:500}
+.stats-bar{background:var(--dark);border-radius:16px;padding:40px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center;margin:60px 0}
+@media(max-width:580px){.stats-bar{grid-template-columns:repeat(2,1fr)}}
+.stat-num{font-family:'Playfair Display',serif;font-size:30px;font-weight:700;color:var(--accent-light)}
+.stat-label{font-size:12px;color:rgba(255,255,255,0.5);margin-top:4px}
+footer{background:var(--dark);color:rgba(255,255,255,0.5);text-align:center;padding:24px;font-size:13px;margin-top:0}
+footer a{color:#F5A55A;text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <a href="index.html" class="logo">Fur<span>Cart</span></a>
+    <a href="index.html" class="back-btn">← Back to Store</a>
+  </div>
+</header>
+<div class="hero">
+  <h1>Built for pets.<br>Built with <em>love</em>.</h1>
+  <p>The story behind FurCart — India's premium pet gear store for dogs and cats.</p>
+</div>
+<div class="main">
+  <div class="story">
+    <div class="story-img">🐾</div>
+    <div class="story-text">
+      <h2>How FurCart began</h2>
+      <p>FurCart was founded with a simple frustration: why was it so hard to find pet gear in India that was both high-quality AND affordable?</p>
+      <p>Our founder Ajay Mishra noticed that most pet stores either stocked cheap, unsafe products — or imported luxury brands with absurd markups. There was nothing in between.</p>
+      <p>So he built FurCart — a store that brings premium, vet-approved pet gear directly to Indian pet owners at honest prices, delivered across all of India.</p>
+    </div>
+  </div>
+
+  <div class="values">
+    <div class="val-box"><div class="val-icon">🛡️</div><div class="val-title">Vet Approved</div><div class="val-desc">Every product is tested and approved by certified veterinarians</div></div>
+    <div class="val-box"><div class="val-icon">🌿</div><div class="val-title">Pet Safe</div><div class="val-desc">Non-toxic, hypoallergenic materials only — safe for all breeds</div></div>
+    <div class="val-box"><div class="val-icon">🇮🇳</div><div class="val-title">Made for India</div><div class="val-desc">Designed for Indian climate, priced for Indian pet parents</div></div>
+    <div class="val-box"><div class="val-icon">❤️</div><div class="val-title">With Love</div><div class="val-desc">We're pet owners too — we only sell what we'd give our own pets</div></div>
+  </div>
+
+  <div class="stats-bar">
+    <div><div class="stat-num">12,000+</div><div class="stat-label">Happy pets</div></div>
+    <div><div class="stat-num">200+</div><div class="stat-label">Products</div></div>
+    <div><div class="stat-num">25,000+</div><div class="stat-label">Pin codes served</div></div>
+    <div><div class="stat-num">4.9★</div><div class="stat-label">Average rating</div></div>
+  </div>
+
+  <div class="team-section">
+    <h2>Meet the Founder</h2>
+    <div class="team-card">
+      <div class="avatar">AM</div>
+      <div class="team-name">Ajay Mishra</div>
+      <div class="team-title">Founder & CEO</div>
+      <p class="team-bio">A lifelong dog lover and entrepreneur, Ajay started FurCart to solve a problem he faced personally. He believes every pet deserves the best — regardless of their owner's budget.</p>
+      <a href="mailto:contact@furcart.com" class="team-email">✉️ contact@furcart.com</a>
+    </div>
+  </div>
+</div>
+<footer>© 2026 FurCart by Ajay Mishra &nbsp;·&nbsp; <a href="index.html">Shop Now</a> &nbsp;·&nbsp; <a href="contact.html">Contact</a></footer>
+</body>
+</html>

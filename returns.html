@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Returns & Refunds — FurCart</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--cream:#FAF7F2;--warm:#F2EDE4;--dark:#2A1F14;--accent:#D4782A;--accent-pale:#FDF0E4;--text:#2A1F14;--text-mid:#6B5A48;--text-light:#9E8B79;--border:rgba(107,76,42,0.15);--shadow:0 4px 24px rgba(42,31,20,0.08)}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text)}
+header{background:rgba(250,247,242,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+.nav{max-width:1100px;margin:0 auto;padding:0 2rem;height:68px;display:flex;align-items:center;justify-content:space-between}
+.logo{text-decoration:none;font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--dark)}.logo span{color:var(--accent)}
+.back-btn{display:inline-flex;align-items:center;gap:8px;color:var(--text-mid);text-decoration:none;font-size:14px;font-weight:500;padding:8px 16px;border-radius:50px;border:1.5px solid var(--border);transition:all .2s}
+.back-btn:hover{border-color:var(--accent);color:var(--accent)}
+.hero-bar{background:var(--dark);color:white;text-align:center;padding:48px 2rem 40px}
+.hero-bar h1{font-family:'Playfair Display',serif;font-size:36px;margin-bottom:8px}
+.hero-bar p{color:rgba(255,255,255,0.6);font-size:15px}
+.main{max-width:780px;margin:0 auto;padding:48px 2rem}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;margin-bottom:40px}
+.step-box{background:white;border-radius:14px;padding:24px 16px;text-align:center;box-shadow:var(--shadow)}
+.step-num{width:40px;height:40px;border-radius:50%;background:var(--accent);color:white;font-weight:700;font-size:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+.step-icon{font-size:28px;margin-bottom:10px}
+.step-title{font-weight:600;font-size:14px;color:var(--dark);margin-bottom:4px}
+.step-desc{font-size:12px;color:var(--text-light)}
+.card{background:white;border-radius:16px;padding:32px;box-shadow:var(--shadow);margin-bottom:24px}
+.card h2{font-family:'Playfair Display',serif;font-size:22px;color:var(--dark);margin-bottom:16px}
+.info-row{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--border)}
+.info-row:last-child{border-bottom:none}
+.info-icon{font-size:20px;flex-shrink:0;margin-top:2px}
+.info-text strong{display:block;font-size:14px;font-weight:600;color:var(--dark);margin-bottom:2px}
+.info-text span{font-size:13px;color:var(--text-mid)}
+.form-group{margin-bottom:16px}
+label{display:block;font-size:12px;font-weight:600;color:var(--text-mid);margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px}
+input,textarea,select{width:100%;padding:12px 16px;border-radius:10px;border:1.5px solid var(--border);background:var(--cream);font-family:'DM Sans',sans-serif;font-size:15px;color:var(--text);outline:none;transition:border .2s}
+input:focus,textarea:focus,select:focus{border-color:var(--accent)}
+textarea{resize:vertical;min-height:100px}
+.btn{background:var(--accent);color:white;border:none;padding:14px 32px;border-radius:50px;font-size:15px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;width:100%;transition:all .2s;margin-top:8px}
+.btn:hover{background:#6B4C2A;transform:translateY(-1px)}
+.badge{display:inline-block;padding:5px 12px;border-radius:50px;font-size:12px;font-weight:600}
+.badge-ok{background:#E8F2EC;color:#4A7C59}
+.badge-no{background:#FDEAEA;color:#C0392B}
+footer{background:var(--dark);color:rgba(255,255,255,0.5);text-align:center;padding:24px;font-size:13px;margin-top:60px}
+footer a{color:#F5A55A;text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <a href="index.html" class="logo">Fur<span>Cart</span></a>
+    <a href="index.html" class="back-btn">← Back to Store</a>
+  </div>
+</header>
+<div class="hero-bar">
+  <h1>↩️ Returns & Refunds</h1>
+  <p>30-day hassle-free returns — your satisfaction guaranteed</p>
+</div>
+<div class="main">
+  <div class="steps">
+    <div class="step-box"><div class="step-num">1</div><div class="step-icon">📝</div><div class="step-title">Submit Request</div><div class="step-desc">Fill the form below with your order details</div></div>
+    <div class="step-box"><div class="step-num">2</div><div class="step-icon">✅</div><div class="step-title">Get Approved</div><div class="step-desc">We review and confirm within 24 hours</div></div>
+    <div class="step-box"><div class="step-num">3</div><div class="step-icon">📦</div><div class="step-title">Ship It Back</div><div class="step-desc">Pack & ship using our prepaid label</div></div>
+    <div class="step-box"><div class="step-num">4</div><div class="step-icon">💰</div><div class="step-title">Get Refund</div><div class="step-desc">Refund in 5–7 days to your account</div></div>
+  </div>
+
+  <div class="card">
+    <h2>Return Policy</h2>
+    <div class="info-row"><div class="info-icon">📅</div><div class="info-text"><strong>Return Window</strong><span>30 days from delivery date</span></div></div>
+    <div class="info-row"><div class="info-icon">🏷️</div><div class="info-text"><strong>Condition</strong><span>Unused, unwashed, original packaging</span></div></div>
+    <div class="info-row"><div class="info-icon">🚚</div><div class="info-text"><strong>Return Shipping</strong><span>Free for damaged/wrong items · ₹79 for change of mind</span></div></div>
+    <div class="info-row"><div class="info-icon">💳</div><div class="info-text"><strong>Refund Method</strong><span>Original payment method · COD refunds via bank transfer</span></div></div>
+    <div class="info-row"><div class="info-icon">⏱️</div><div class="info-text"><strong>Refund Timeline</strong><span>5–7 business days after we receive the item</span></div></div>
+  </div>
+
+  <div class="card">
+    <h2>What Can Be Returned</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px">
+      <div style="background:#E8F2EC;border-radius:10px;padding:14px"><div style="font-weight:600;font-size:13px;color:#4A7C59;margin-bottom:10px">✅ Eligible for Return</div>
+        <div style="font-size:13px;color:#4A7C59;line-height:2">Collars & Harnesses<br>Leashes & Leads<br>Toys (unused)<br>Beds & Mats (unopened)<br>Wrong / Damaged items</div>
+      </div>
+      <div style="background:#FDEAEA;border-radius:10px;padding:14px"><div style="font-weight:600;font-size:13px;color:#C0392B;margin-bottom:10px">❌ Not Eligible</div>
+        <div style="font-size:13px;color:#C0392B;line-height:2">Used / washed items<br>Personalised products<br>Grooming items (hygiene)<br>Items without tags<br>After 30 days</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Request a Return</h2>
+    <div class="form-group"><label>Order ID</label><input type="text" placeholder="FC-2024-00123" /></div>
+    <div class="form-group"><label>Email Address</label><input type="email" placeholder="you@example.com" /></div>
+    <div class="form-group"><label>Reason for Return</label>
+      <select>
+        <option>Select reason...</option>
+        <option>Wrong size</option>
+        <option>Damaged / defective product</option>
+        <option>Wrong item received</option>
+        <option>Changed my mind</option>
+        <option>Pet didn't like it</option>
+        <option>Other</option>
+      </select>
+    </div>
+    <div class="form-group"><label>Additional Details</label><textarea placeholder="Tell us more about the issue..."></textarea></div>
+    <button class="btn" onclick="alert('✅ Return request submitted! We will email you within 24 hours.')">Submit Return Request →</button>
+  </div>
+</div>
+<footer>© 2026 FurCart by Ajay Mishra &nbsp;·&nbsp; <a href="index.html">Back to Store</a> &nbsp;·&nbsp; <a href="contact.html">Contact Us</a></footer>
+</body>
+</html>
